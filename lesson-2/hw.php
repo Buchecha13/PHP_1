@@ -1,5 +1,5 @@
 <?php
-//Здесь сделаны задания с №1 по №4
+//Здесь сделаны задания №1, №2, №3, №4, №6
 //Задание 1
 echo '<b>Начало задания №1</b> <br>';
 $a = rand(-5, 5);
@@ -66,6 +66,7 @@ function randSwitch($a): string
         echo $a++ . ' ';
         randSwitch($a);
     }
+//    Думаю, в return нужно передавать что то другое, но не знаю что
     return 'Функция отработала правильно';
 }
 
@@ -115,10 +116,10 @@ function mathOperation($arg1, $arg2, $operation)
             return addition($arg1, $arg2);
             break;
         case 'subtraction':
-            return multiplication($arg1, $arg2);
+            return subtraction($arg1, $arg2);
             break;
         case 'multiplication':
-            return addition($arg1, $arg2);
+            return multiplication($arg1, $arg2);
             break;
         case 'division':
             return division($arg1, $arg2);
@@ -146,14 +147,3 @@ echo 'Возведение числа в степень: ' . power(2, 2);
 
 echo '<br> <b>Конец задания №6</b> <br>';
 
-//Задание 7
-function currentTime ():string {
-    $time = localtime(time(), true);
-    $hour = $time['tm_hour'];
-    $min = $time['tm_min'];
-
-    if ($hour)
-
-    return "{$hour}:{$min}";
-}
-echo currentTime();
