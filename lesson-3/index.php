@@ -8,7 +8,7 @@ while ($i <= 100) {
     }
     $i++;
 }
-echo '<b><br> Конец задания №1 </b>';
+echo '<b><br> Конец задания №1 <br></b>';
 //Задание 2
 echo '<b> Начало задания №2 <br></b>';
 $i = 0;
@@ -22,7 +22,7 @@ do {
     }
     $i++;
 } while ($i <= 10);
-echo '<b><br> Конец задания №2 </b>';
+echo '<b><br> Конец задания №2 <br></b>';
 //Задание 3
 echo '<b> Начало задания №3 <br></b>';
 $cities = [
@@ -64,25 +64,70 @@ foreach ($cities as $region => $city) {
 }
 echo '<b><br> Конец задания №8 </b>';
 //Задание 4
-
-
-
-function translate (string $string) : string {
+echo '<b> Начало задания №4 <br></b>';
+function translate(string $string): string
+{
     $alphabet = [
-        'а' => 'a',   'б' => 'b',   'в' => 'v',
-        'г' => 'g',   'д' => 'd',   'е' => 'e',
-        'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
-        'и' => 'i',   'й' => 'y',   'к' => 'k',
-        'л' => 'l',   'м' => 'm',   'н' => 'n',
-        'о' => 'o',   'п' => 'p',   'р' => 'r',
-        'с' => 's',   'т' => 't',   'у' => 'u',
-        'ф' => 'f',   'х' => 'h',   'ц' => 'c',
-        'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
-        'ь' => '\'',  'ы' => 'y',   'ъ' => '\'',
-        'э' => 'e',   'ю' => 'yu',  'я' => 'ya'
+        'а' => 'a', 'б' => 'b', 'в' => 'v',
+        'г' => 'g', 'д' => 'd', 'е' => 'e',
+        'ё' => 'e', 'ж' => 'zh', 'з' => 'z',
+        'и' => 'i', 'й' => 'y', 'к' => 'k',
+        'л' => 'l', 'м' => 'm', 'н' => 'n',
+        'о' => 'o', 'п' => 'p', 'р' => 'r',
+        'с' => 's', 'т' => 't', 'у' => 'u',
+        'ф' => 'f', 'х' => 'h', 'ц' => 'c',
+        'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sch',
+        'ь' => '\'', 'ы' => 'y', 'ъ' => '\'',
+        'э' => 'e', 'ю' => 'yu', 'я' => 'ya'
     ];
-    $string = strtr($string, $alphabet);
-    return $string;
+
+    $result = '';
+    for ($i = 0; $i < mb_strlen($string); $i++) {
+        $letter = mb_substr($string, $i, 1);
+        if (isset($alphabet[mb_strtolower($letter)])) {
+            if ($letter === mb_strtolower($letter)) {
+                $latinLetter = $alphabet[$letter];
+            } else {
+                $latinLetter = mb_strtoupper($alphabet[mb_strtolower($letter)]);
+            }
+        } else {
+            $latinLetter = $letter;
+        }
+        $result .= $latinLetter;
+    }
+    return $result;
 }
 
-echo translate('Привет');
+echo translate('Привет, пользователь');
+echo '<b><br> Конец задания №4 </b>';
+
+//Задание 5
+echo '<b> Начало задания №4 <br></b>';
+
+function spaceReplace ($string) {
+    $result = '';
+    for ($i = 0; $i < mb_strlen($string); $i++) {
+        $symbol = mb_substr($string, $i, 1);
+        if ($symbol === ' ') {
+            $symbol = '_';
+        }
+        $result .= $symbol;
+    }
+    return $result;
+}
+echo spaceReplace('Привет   Андрей') . '<br>';
+
+//Через str_replace
+$str = 'Проверяем замену. Check ';
+echo str_replace(' ','_', $str);
+
+echo '<b><br> Конец задания №4 </b>';
+
+//Задание 7
+echo '<b> Начало задания №7<br></b>';
+
+    for ($i = 0; $i <10; print $i++){
+
+    }
+
+echo '<b><br> Конец задания №7 </b>';
