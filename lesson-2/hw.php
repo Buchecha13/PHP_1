@@ -97,7 +97,7 @@ echo "Умножение 6 и 3 = " . multiplication(6, 3) . '<br>';
 function division($a, $b)
 {
 //  Не уверен, что правильно здесь поставил return. Как то громоздко выглядит выражение..
-    return ($b === 0) ? $err = 'На ноль делить не стоит' : $a / $b;
+    return ($b === 0) ? 'На ноль делить не стоит' : $a / $b;
 
 }
 
@@ -113,16 +113,16 @@ function mathOperation($arg1, $arg2, $operation)
     switch ($operation) {
         case 'addition':
             return addition($arg1, $arg2);
-            break;
+
         case 'subtraction':
             return multiplication($arg1, $arg2);
-            break;
+
         case 'multiplication':
             return addition($arg1, $arg2);
-            break;
+
         case 'division':
             return division($arg1, $arg2);
-            break;
+            
     }
 }
 
