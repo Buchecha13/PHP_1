@@ -53,14 +53,16 @@ echo '<b><br> Конец задания №3<br> </b>';
 echo '<b> Начало задания №8 <br></b>';
 
 foreach ($cities as $region => $city) {
+    $str = '';
     foreach ($city as $item) {
         if (mb_substr($item, 0, 1) == 'К') {
             $str .= $item . ',';
         }
     }
-    $str[strlen($str) - 1] = '.';
+//    $str[strlen($str) - 1] = '.';
+    $str = mb_substr($str, 0, -1). '.';
     echo "{$region}:<br>{$str}<br>";
-    $str = '';
+
 }
 echo '<b><br> Конец задания №8 </b>';
 //Задание 4
@@ -126,8 +128,6 @@ echo '<b><br> Конец задания №4 </b>';
 //Задание 7
 echo '<b> Начало задания №7<br></b>';
 
-    for ($i = 0; $i <10; print $i++){
-
-    }
+    for ($i = 0; $i <10; print $i++);
 
 echo '<b><br> Конец задания №7 </b>';
